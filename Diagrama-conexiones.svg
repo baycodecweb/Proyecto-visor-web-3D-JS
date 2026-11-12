@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 880" width="1000" height="880" font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif">
+  <title>Mause ESP32 - Diagrama de conexiones</title>
+  <rect width="1000" height="880" fill="#f8fafc"/>
+
+  <!-- Título -->
+  <text x="40" y="52" font-size="26" font-weight="700" fill="#0f172a">Mause ESP32 — Diagrama de conexiones</text>
+  <text x="40" y="80" font-size="15" fill="#475569">Seeed XIAO ESP32-S3 (vista superior, USB arriba) + MPU-6050 (GY-521) + 2 pulsadores</text>
+
+  <g transform="translate(40,0)">
+
+    <!-- ================= CABLES (debajo de los pines) ================= -->
+    <g fill="none" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- 3V3 -> VCC -->
+      <path d="M545 300 H610 V220 H735" stroke="#dc2626"/>
+      <!-- GND -> GND (con salto sobre el cable rojo) -->
+      <path d="M545 250 H602 A8 8 0 0 1 618 250 H640 V260 H735" stroke="#111827"/>
+      <!-- D5 (GPIO6) -> SCL -->
+      <path d="M315 450 H270 V660 H680 V300 H735" stroke="#f59e0b"/>
+      <!-- D4 (GPIO5) -> SDA -->
+      <path d="M315 400 H250 V680 H700 V340 H735" stroke="#2563eb"/>
+      <!-- D0 / D1 -> botones -->
+      <path d="M315 200 H240" stroke="#7c3aed"/>
+      <path d="M315 250 H240" stroke="#7c3aed"/>
+      <!-- botones -> GND -->
+      <path d="M170 200 H130" stroke="#111827"/>
+      <path d="M170 250 H130" stroke="#111827"/>
+    </g>
+
+    <!-- Etiquetas sobre cables -->
+    <g font-size="13" font-weight="700">
+      <text x="470" y="652" fill="#b45309" text-anchor="middle">SCL</text>
+      <text x="470" y="700" fill="#1d4ed8" text-anchor="middle">SDA</text>
+      <text x="660" y="212" fill="#b91c1c" text-anchor="middle">3.3 V</text>
+      <text x="676" y="278" fill="#111827" text-anchor="middle">GND</text>
+    </g>
+
+    <!-- ================= PULSADORES ================= -->
+    <g id="botones">
+      <!-- Clic izquierdo -->
+      <g stroke="#334155" stroke-width="2.5" stroke-linecap="round" fill="none">
+        <line x1="166" y1="186" x2="244" y2="186"/>
+        <line x1="205" y1="186" x2="205" y2="174"/>
+        <line x1="195" y1="174" x2="215" y2="174"/>
+      </g>
+      <circle cx="170" cy="200" r="5" fill="#fff" stroke="#334155" stroke-width="2.5"/>
+      <circle cx="240" cy="200" r="5" fill="#fff" stroke="#334155" stroke-width="2.5"/>
+      <text x="205" y="165" font-size="13" fill="#334155" text-anchor="middle" font-weight="600">Clic izquierdo</text>
+
+      <!-- Clic derecho -->
+      <g stroke="#334155" stroke-width="2.5" stroke-linecap="round" fill="none">
+        <line x1="166" y1="236" x2="244" y2="236"/>
+        <line x1="205" y1="236" x2="205" y2="226"/>
+        <line x1="195" y1="226" x2="215" y2="226"/>
+      </g>
+      <circle cx="170" cy="250" r="5" fill="#fff" stroke="#334155" stroke-width="2.5"/>
+      <circle cx="240" cy="250" r="5" fill="#fff" stroke="#334155" stroke-width="2.5"/>
+      <text x="205" y="272" font-size="13" fill="#334155" text-anchor="middle" font-weight="600">Clic derecho</text>
+
+      <!-- Símbolos de tierra (apuntando a la izquierda) -->
+      <g stroke="#111827" stroke-width="3" stroke-linecap="round">
+        <line x1="130" y1="188" x2="130" y2="212"/><line x1="123" y1="192" x2="123" y2="208"/><line x1="116" y1="196" x2="116" y2="204"/>
+        <line x1="130" y1="238" x2="130" y2="262"/><line x1="123" y1="242" x2="123" y2="258"/><line x1="116" y1="246" x2="116" y2="254"/>
+      </g>
+      <text x="106" y="205" font-size="12" fill="#111827" text-anchor="end">GND</text>
+      <text x="106" y="255" font-size="12" fill="#111827" text-anchor="end">GND</text>
+    </g>
+
+    <!-- ================= XIAO ESP32-S3 ================= -->
+    <g id="xiao">
+      <rect x="380" y="128" width="100" height="40" rx="10" fill="#9ca3af" stroke="#6b7280" stroke-width="2"/>
+      <rect x="400" y="138" width="60" height="16" rx="6" fill="#4b5563"/>
+      <text x="430" y="122" font-size="12" fill="#64748b" text-anchor="middle">USB-C</text>
+
+      <rect x="300" y="150" width="260" height="470" rx="18" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+
+      <!-- Escudo / nombre -->
+      <rect x="322" y="525" width="216" height="78" rx="8" fill="#cbd5e1" stroke="#94a3b8"/>
+      <text x="430" y="556" font-size="17" font-weight="700" fill="#0f172a" text-anchor="middle">XIAO ESP32-S3</text>
+      <text x="430" y="580" font-size="12" fill="#334155" text-anchor="middle">Seeed Studio</text>
+      <!-- conector antena -->
+      <circle cx="332" cy="510" r="0" fill="none"/>
+
+      <!-- Pines izquierda -->
+      <g font-size="13">
+        <text x="332" y="205" fill="#fff" font-weight="700">D0 · GPIO1</text>
+        <text x="332" y="255" fill="#fff" font-weight="700">D1 · GPIO2</text>
+        <text x="332" y="305" fill="#64748b">D2</text>
+        <text x="332" y="355" fill="#64748b">D3</text>
+        <text x="332" y="405" fill="#fff" font-weight="700">D4 · GPIO5</text>
+        <text x="332" y="455" fill="#fff" font-weight="700">D5 · GPIO6</text>
+        <text x="332" y="505" fill="#64748b">D6</text>
+      </g>
+      <!-- Pines derecha -->
+      <g font-size="13" text-anchor="end">
+        <text x="528" y="205" fill="#64748b">5V</text>
+        <text x="528" y="255" fill="#fff" font-weight="700">GND</text>
+        <text x="528" y="305" fill="#fff" font-weight="700">3V3</text>
+        <text x="528" y="355" fill="#64748b">D10</text>
+        <text x="528" y="405" fill="#64748b">D9</text>
+        <text x="528" y="455" fill="#64748b">D8</text>
+        <text x="528" y="505" fill="#64748b">D7</text>
+      </g>
+      <!-- Pads -->
+      <g stroke="#facc15" stroke-width="2.5" fill="#1e293b">
+        <circle cx="315" cy="200" r="7"/><circle cx="315" cy="250" r="7"/>
+        <circle cx="315" cy="400" r="7"/><circle cx="315" cy="450" r="7"/>
+        <circle cx="545" cy="250" r="7"/><circle cx="545" cy="300" r="7"/>
+      </g>
+      <g stroke="#64748b" stroke-width="2" fill="#1e293b">
+        <circle cx="315" cy="300" r="6"/><circle cx="315" cy="350" r="6"/><circle cx="315" cy="500" r="6"/>
+        <circle cx="545" cy="200" r="6"/><circle cx="545" cy="350" r="6"/><circle cx="545" cy="400" r="6"/>
+        <circle cx="545" cy="450" r="6"/><circle cx="545" cy="500" r="6"/>
+      </g>
+    </g>
+
+    <!-- ================= MPU-6050 (GY-521) ================= -->
+    <g id="mpu">
+      <rect x="720" y="180" width="190" height="350" rx="12" fill="#1d4ed8" stroke="#1e3a8a" stroke-width="2"/>
+      <circle cx="880" cy="212" r="12" fill="#f8fafc" stroke="#93c5fd" stroke-width="2"/>
+      <circle cx="880" cy="498" r="12" fill="#f8fafc" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="815" y="330" width="44" height="44" rx="4" fill="#111827"/>
+      <text x="837" y="397" font-size="11" fill="#bfdbfe" text-anchor="middle">MPU-6050</text>
+      <text x="837" y="455" font-size="12" fill="#dbeafe" text-anchor="middle" font-weight="700">GY-521</text>
+      <circle cx="886" cy="270" r="4" fill="#ef4444"/>
+      <text x="880" y="290" font-size="10" fill="#bfdbfe" text-anchor="middle">LED</text>
+
+      <g font-size="13">
+        <text x="752" y="225" fill="#fff" font-weight="700">VCC</text>
+        <text x="752" y="265" fill="#fff" font-weight="700">GND</text>
+        <text x="752" y="305" fill="#fff" font-weight="700">SCL</text>
+        <text x="752" y="345" fill="#fff" font-weight="700">SDA</text>
+        <text x="752" y="385" fill="#93c5fd">XDA</text>
+        <text x="752" y="425" fill="#93c5fd">XCL</text>
+        <text x="752" y="465" fill="#93c5fd">AD0</text>
+        <text x="752" y="505" fill="#93c5fd">INT</text>
+      </g>
+      <g stroke="#facc15" stroke-width="2.5" fill="#1d4ed8">
+        <circle cx="735" cy="220" r="7"/><circle cx="735" cy="260" r="7"/>
+        <circle cx="735" cy="300" r="7"/><circle cx="735" cy="340" r="7"/>
+      </g>
+      <g stroke="#93c5fd" stroke-width="2" fill="#1d4ed8">
+        <circle cx="735" cy="380" r="6"/><circle cx="735" cy="420" r="6"/>
+        <circle cx="735" cy="460" r="6"/><circle cx="735" cy="500" r="6"/>
+      </g>
+      <text x="720" y="558" font-size="12.5" fill="#475569">XDA, XCL, AD0, INT: sin conectar</text>
+      <text x="720" y="576" font-size="12.5" fill="#475569">AD0 libre → dirección I2C 0x68</text>
+      <text x="720" y="594" font-size="12.5" fill="#475569">El LED debe encender al conectar</text>
+    </g>
+  </g>
+
+  <!-- ================= TABLA / LEYENDA ================= -->
+  <g transform="translate(40,730)" font-size="14">
+    <line x1="0" y1="-14" x2="920" y2="-14" stroke="#cbd5e1"/>
+    <text x="0" y="8" font-size="15" font-weight="700" fill="#0f172a">Conexiones</text>
+
+    <g transform="translate(0,34)">
+      <rect width="26" height="6" y="-5" rx="3" fill="#dc2626"/>
+      <text x="36" y="0" fill="#0f172a"><tspan font-weight="700">MPU VCC</tspan> → 3V3 (3.3 V, no 5V)</text>
+      <rect width="26" height="6" y="23" rx="3" fill="#111827"/>
+      <text x="36" y="28" fill="#0f172a"><tspan font-weight="700">MPU GND</tspan> → GND</text>
+      <rect width="26" height="6" y="51" rx="3" fill="#f59e0b"/>
+      <text x="36" y="56" fill="#0f172a"><tspan font-weight="700">MPU SCL</tspan> → D5 (GPIO 6)</text>
+      <rect width="26" height="6" y="79" rx="3" fill="#2563eb"/>
+      <text x="36" y="84" fill="#0f172a"><tspan font-weight="700">MPU SDA</tspan> → D4 (GPIO 5)</text>
+    </g>
+    <g transform="translate(470,34)">
+      <rect width="26" height="6" y="-5" rx="3" fill="#7c3aed"/>
+      <text x="36" y="0" fill="#0f172a"><tspan font-weight="700">Botón izquierdo</tspan> → D0 (GPIO 1) y GND</text>
+      <rect width="26" height="6" y="23" rx="3" fill="#7c3aed"/>
+      <text x="36" y="28" fill="#0f172a"><tspan font-weight="700">Botón derecho</tspan> → D1 (GPIO 2) y GND</text>
+      <text x="0" y="56" fill="#475569" font-size="13">Botones con INPUT_PULLUP: sin pulsar = 1, pulsado = 0.</text>
+      <text x="0" y="84" fill="#475569" font-size="13">Todos los GND (botones, MPU, XIAO) deben estar unidos.</text>
+    </g>
+  </g>
+</svg>
